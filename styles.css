@@ -1,0 +1,48 @@
+#content {
+  max-width: 750px;
+  padding: 15px;
+  /*display: inline-block;*/
+  margin: 0 auto;
+  border: 1px solid black;
+  background: lightblue;
+}
+h1 {
+}
+.chalkboard {
+  border: 5px solid black;
+  border-radius: 15px;
+  padding: 10px;
+  background: lightgoldenrodyellow;
+}
+.riddle {
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-style: cursive;
+  color: white;
+  background-color: darkslategrey;
+  text-align: center;
+}
+/*.answer::before {
+
+  content: ">> ";
+}
+*/
+.answer {
+  color:orange;
+  visibility: hidden;
+}
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  width: 100px;
+  padding: 10px;
+  background: lightgray;
+  color: black;
+  margin: 30px;
+  margin-left: 0px;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
+}
