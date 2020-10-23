@@ -1,0 +1,1 @@
+Display a daily riddle to make people smile. :)
