@@ -20,6 +20,7 @@ function showAnswer (answerStr) {
   
   //console.log ("letters:  ", letters);
   answer.innerHTML = letters.join ('');
+
   //console.log ("answer [", answer, "]");
 
   Array.from(answer.children).forEach((child, i) => {
@@ -29,7 +30,7 @@ function showAnswer (answerStr) {
     setTimeout (function () {
       child.style.visibility = "visible";
       //child.style.display = "inline";
-    }, i*100);
+    }, i*75);
   }, 0);
   
   //answer.style.visibility = "visible";
@@ -39,6 +40,10 @@ function showAnswer (answerStr) {
 function showQuestion (questionStr) {
 /****************************************************************** */
   question.textContent = questionStr;
+  // Place a character in the answer string -even though it's hidden.
+  // so that the chalkboard stays a fixed size and the height doesn't
+  // decrease and increase as the answer disappears.
+  answer.textContent = "-";
 }
 
 /****************************************************************** */
