@@ -9,10 +9,10 @@
 .happyFace {
   position: absolute;
   background: transparent;
-  top: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
 }
 h1 {
 }
@@ -26,9 +26,9 @@ h1 {
 .riddle {
   border-radius: 15px;
   padding: 10px;
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: bold;
-  font-style: cursive;
+  /*font-style: cursive;*/
   color: white;
   background-color: darkslategrey;
   text-align: center;
@@ -53,4 +53,17 @@ h1 {
   border: 1px solid black;
   border-radius: 15px;
   text-align: center;
+}
+/* Media queries for larger screen size */
+@media screen and (min-width:760px)
+{
+.happyFace {
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+}
+.riddle {
+  font-size: 1.5em;
+}
 }
