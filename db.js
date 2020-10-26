@@ -1,18 +1,21 @@
-const riddles = [
-  {question: "Why did the chicken cross the road?",
-  answer: "To get to the other side!"},
-  {question: "Why did the Chicken cross the road?",
-  answer: "To practice social distancing!"},
-  {question: "Why did the horse cross the road?",
-  answer: "To get to the other NEIGH-bourhood!"}
-];
+let riddle = {};
+let riddles = [];
 let riddleNum = -1;
 
-function getRiddle () {
+// Get the riddles from a .json file
+fetch ("riddles.json")
+  .then (response => response.json ())
+  .then (json => {
+    riddles = json;
+    // Initialize and show the 1st riddle.
+    riddle = getRiddle ();
+    showQuestion (riddle.question);
+  });
 
-  //  riddles.forEach ((riddle, i) => {
-  //  console.log (`riddle [${i}] ${riddle.question}: ${riddle.answer}`);
-  //}, 0);
+/****************************************************** */
+function getRiddle () {
+/****************************************************** */
+  // Return a riddle object.
   ++riddleNum;
   if (riddleNum === riddles.length)
   {

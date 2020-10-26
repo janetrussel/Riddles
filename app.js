@@ -3,8 +3,6 @@ const giveup = document.querySelector(".giveup");
 const next = document.querySelector(".next");
 const question = document.querySelector (".question");
 
-let riddle = getRiddle ();
-
 // const style = getComputedStyle (answer);
 
 // Show the answer to the riddle.
@@ -29,7 +27,8 @@ function showAnswer (answerStr) {
 //  answer.children.forEach ((element) => {
     //console.log ("element [", child, "]");
     setTimeout (function () {
-    child.style.visibility = "visible";
+      child.style.visibility = "visible";
+      //child.style.display = "inline";
     }, i*100);
   }, 0);
   
@@ -59,5 +58,3 @@ next.addEventListener ('click', () => {
     riddle = getRiddle ();
     showQuestion (riddle.question);
 });
-  
-showQuestion (riddle.question);

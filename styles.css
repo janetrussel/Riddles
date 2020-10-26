@@ -25,10 +25,8 @@ h1 {
   text-align: center;
 }
 /*.answer::before {
-
-  content: ">> ";
-}
-*/
+  content: ">>";
+}*/
 .answer {
   color:orange;
   visibility: hidden;
