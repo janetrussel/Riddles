@@ -62,11 +62,11 @@ h1 {
   display: inline-block;
   cursor: pointer;
   width: 100px;
-  padding: 10px;
+  padding: 5px;
   background: lightgray;
   color: black;
-  margin: 30px;
-  margin-left: 0px;
+  margin: 7px;
+  /*margin-left: 0px;*/
   border: 1px solid black;
   border-radius: 15px;
   text-align: center;

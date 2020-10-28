@@ -1,9 +1,10 @@
 const answer = document.querySelector(".answer");
-const giveup = document.querySelector(".giveup");
-const next = document.querySelector(".next");
 const question = document.querySelector (".question");
 const laugh = document.querySelector ("audio");
 const volume = document.querySelector (".volume");
+const buttons = document.querySelector (".buttons");
+const prev = document.querySelector (".prev");
+const next = document.querySelector (".next");
 
 // Show the answer to the riddle.
 /***************************************************************** */
@@ -48,6 +49,17 @@ function showQuestion (questionStr) {
   // so that the chalkboard stays a fixed size and the height doesn't
   // decrease and increase as the answer disappears.
   answer.textContent = "-";
+
+  // If it's the 1st riddle in the list, hide the prev button
+  if (!riddleNum) {
+    prev.style.display = "none";
+  }
+  // If it the last riddle in the list, hide the next button
+  else if (riddleNum === (riddles.length - 1))
+  {
+    next.style.display = "none";
+  }
+
 }
 
 /****************************************************************** */
@@ -71,19 +83,31 @@ volume.addEventListener ('click', () => {
 });
 
 /****************************************************************** */
-// Add an event listenter to the I give up button
-giveup.addEventListener ('click', () => {
-  /****************************************************************** */
-    // Show the answer
-    showAnswer (riddle.answer);
-  });
-
+// Add an event listenter to the buttons (GiveUp, Next, (Prev)ious)
+buttons.addEventListener ('click', (e) => {
 /****************************************************************** */
-// Add an event listenter to the Next button
-next.addEventListener ('click', () => {
-/****************************************************************** */
-    // Show the answer
-    answer.textContent="";
-    riddle = getRiddle ();
-    showQuestion (riddle.question);
+  const button = e.target.getAttribute("name");
+      
+  switch (button) {
+    case "giveUp": 
+      // Show the answer
+      showAnswer (riddle.answer); 
+      break;
+    case "prev": 
+      // Show the previous riddle.  Hide the answer.
+      // Display the next button.
+      next.style.display = "inline-block";
+      answer.textContent="";
+      riddle = getRiddle (0);
+      showQuestion (riddle.question);
+      break;
+    case "next":  
+      // Show the next riddle.  Hide the answer.
+      // Once the next button is hit; display the previous button.
+      prev.style.display = "inline-block";
+      answer.textContent="";
+      riddle = getRiddle (1);
+      showQuestion (riddle.question);
+      break;
+  };
 });
