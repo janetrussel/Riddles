@@ -1,10 +1,18 @@
 [
+  {"question": "What happened when the computer geeks met?", 
+    "answer": "It was love at first site!"},
+  {"question": "Why was the computer cold at night?", 
+    "answer": "It forgot to close its windows!"},
+  {"question": "Why did the computer get glasses?", 
+    "answer": "To improve its web sight!"},
+  {"question": "How do you catch a runaway computer?", 
+    "answer": "With an internet!"},
   {"question": "Why did the chicken cross the road?", 
    "answer": "To get to the other side!"},
-  {"question": "Why did the chicken cross the road?", 
-    "answer": "To practice social distancing!"},
   {"question": "Why did the chicken cross the internet?", 
     "answer": "To get to the other site!"},
+  {"question": "Why did the chicken cross the road?", 
+    "answer": "To practice social distancing!"},
   {"question": "Why did the horse cross the road?",
     "answer": "To get to the other NEIGH-bourhood!"}   
 ]

@@ -1,6 +1,6 @@
 #content {
   max-width: 750px;
-  padding: 15px;
+  padding: 10px;
   /*display: inline-block;*/
   margin: 0 auto;
   border: 1px solid black;
@@ -14,11 +14,26 @@
   width: 30px;
   height: 30px;
 }
+.volume {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  background-color: lightslategrey;
+  border-radius: 50%;
+  padding: 5px;
+}
+.volumeOff {
+}
+.volumeOn {
+}
 h1 {
 }
 .chalkboard {
   position: relative;
-  border: 5px solid black;
+  border: 4px solid black;
   border-radius: 15px;
   padding: 10px;
   background: lightgoldenrodyellow;
@@ -26,7 +41,9 @@ h1 {
 .riddle {
   border-radius: 15px;
   padding: 10px;
-  font-size: 1em;
+  /*margin: 0px;*/
+  padding-right: 40px;
+  font-size: 0.9em;
   font-weight: bold;
   /*font-style: cursive;*/
   color: white;
@@ -62,6 +79,12 @@ h1 {
   right: 30px;
   width: 50px;
   height: 50px;
+}
+.volume {
+  bottom: 20px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
 }
 .riddle {
   font-size: 1.5em;

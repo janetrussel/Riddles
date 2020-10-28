@@ -3,6 +3,7 @@ const giveup = document.querySelector(".giveup");
 const next = document.querySelector(".next");
 const question = document.querySelector (".question");
 const laugh = document.querySelector ("audio");
+const volume = document.querySelector (".volume");
 
 // Show the answer to the riddle.
 /***************************************************************** */
@@ -29,7 +30,11 @@ function showAnswer (answerStr) {
       // play the audio file (laugh).
       if (i+1 === numElements)
       {
-        laugh.play ();
+        // Play audio if it's turned on
+        if (volume.classList.contains ("volumeOn"))
+        {
+          laugh.play ();
+        }
       }
     }, i*75);
   }, 0)
@@ -46,12 +51,32 @@ function showQuestion (questionStr) {
 }
 
 /****************************************************************** */
+// Add an event listenter to the volume button
+volume.addEventListener ('click', () => {
+/****************************************************************** */
+  // Toggle the volume image and class
+  if (volume.classList.contains ("volumeOn"))
+  {
+    // Turn off the volume
+    volume.classList.remove ("volumeOn");
+    volume.classList.add ("volumeOff");
+    volume.src = "volumeOff.png";
+  }
+  else {
+    // Turn on the volume
+    volume.classList.add ("volumeOn");
+    volume.classList.remove ("volumeOff");
+    volume.src = "volumeOn.png";
+  }  
+});
+
+/****************************************************************** */
 // Add an event listenter to the I give up button
 giveup.addEventListener ('click', () => {
-/****************************************************************** */
-  // Show the answer
-  showAnswer (riddle.answer);
-});
+  /****************************************************************** */
+    // Show the answer
+    showAnswer (riddle.answer);
+  });
 
 /****************************************************************** */
 // Add an event listenter to the Next button
