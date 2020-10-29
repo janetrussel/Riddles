@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <title>Document</title>
 </head>
 <body>
@@ -11,18 +11,29 @@
     <h1>Riddles</h1>
     
     <div class="chalkboard">
-      <img src="happyFace.png" class="happyFace">
+      <img src="images/happyFace.png" class="happyFace">
       <div class="riddle">
-        <p class="question"></p>
-        <p class="answer"></p><audio src="laugh.mp3"</audio>
+        <div class="questionBox">
+          <img src="images/playAudio.png" class="playAudio playQuestion" name="playQuestion">
+          <p class="question"></p>
+        </div>
+        <div class="answerBox">
+          <p class="answer">-</p>
+          <img src="images/playAudio.png" class="playAudio playAnswer" name="playAnswer">
+        </div>
+        <audio src="audio/laugh.mp3"</audio>
       </div>
-      <img src="volumeOff.png" class="volume volumeOff">
+      <img src="images/volumeOff.png" class="volume volumeOff">
     </div>
 
     <div class="buttons">
       <span class="btn giveup" name="giveUp">I give up!</span>
       <span class="btn next" name="next">Next Riddle</span>
       <span class="btn prev" name="prev">Prev Riddle</span>
+    </div>
+    <!-- A form to change the riddle category -->
+    <div class="riddleSelector">
+        >> Display <span class="riddleType">All</span> Riddles
     </div>
   </div>
 </body>

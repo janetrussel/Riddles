@@ -5,15 +5,16 @@ const volume = document.querySelector (".volume");
 const buttons = document.querySelector (".buttons");
 const prev = document.querySelector (".prev");
 const next = document.querySelector (".next");
+const playAnswer = document.querySelector (".playAnswer");
 
-// Show the answer to the riddle.
+// Show the answer the riddle.
 /***************************************************************** */
 function showAnswer (answerStr) {
 /***************************************************************** */
   // Create an array of letters surrounded by span tags.
   let letters = [];
   letters = answerStr.split ('');
-
+  
   letters = letters.map((letter) => {
     return `<span class="answer-letter">${letter}</span>`;
   });
@@ -36,6 +37,8 @@ function showAnswer (answerStr) {
         {
           laugh.play ();
         }
+        // Display the playAudio icon for the play answer.
+        playAnswer.style.visibility = "visible";
       }
     }, i*75);
   }, 0)
@@ -49,6 +52,10 @@ function showQuestion (questionStr) {
   // so that the chalkboard stays a fixed size and the height doesn't
   // decrease and increase as the answer disappears.
   answer.textContent = "-";
+  answer.style.visiblity = "visible";
+
+  // Hide the playAudio icon for the answer
+  playAnswer.style.visibility = "hidden";
 
   // If it's the 1st riddle in the list, hide the prev button
   if (!riddleNum) {
@@ -63,6 +70,27 @@ function showQuestion (questionStr) {
 }
 
 /****************************************************************** */
+function playText (textToPlay) {
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = textToPlay;
+  window.speechSynthesis.speak(msg);
+}
+/****************************************************************** */
+// Add an event listeners to the playAudio buttons
+//playQuestion.addEventListener ('click', () => {
+document.querySelectorAll ('.playAudio').forEach(item => {
+  item.addEventListener('click', (e) => {
+/****************************************************************** */    //handle click
+    if (e.target.name ==="playQuestion") {
+      playText (riddle.question);
+    }
+    else {
+      playText (riddle.answer);
+    }
+  });
+});
+
+/****************************************************************** */
 // Add an event listenter to the volume button
 volume.addEventListener ('click', () => {
 /****************************************************************** */
@@ -72,13 +100,13 @@ volume.addEventListener ('click', () => {
     // Turn off the volume
     volume.classList.remove ("volumeOn");
     volume.classList.add ("volumeOff");
-    volume.src = "volumeOff.png";
+    volume.src = "images/volumeOff.png";
   }
   else {
     // Turn on the volume
     volume.classList.add ("volumeOn");
     volume.classList.remove ("volumeOff");
-    volume.src = "volumeOn.png";
+    volume.src = "images/volumeOn.png";
   }  
 });
 
@@ -91,6 +119,10 @@ buttons.addEventListener ('click', (e) => {
   switch (button) {
     case "giveUp": 
       // Show the answer
+      // Speak the question
+      // var msg = new SpeechSynthesisUtterance();
+      // msg.text = riddle.question;
+      // window.speechSynthesis.speak(msg);
       showAnswer (riddle.answer); 
       break;
     case "prev": 

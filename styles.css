@@ -53,10 +53,38 @@ h1 {
 /*.answer::before {
   content: ">>";
 }*/
+.questionBox {
+  display: inline-block;
+}
+.playAudio {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.playQuestion {
+  float: left;
+  margin-right: 5px;
+  margin-top: 14px;
+}
+.question {
+  margin-left: 0px;
+  float: right;
+}
+.answerBox {
+  display: inline-block;
+  min-width: 100px;
+}
 .answer {
-  color:orange;
   border: 1px solid red;
+  color:orange;
   visibility: hidden;
+  margin-right: 10px;
+  float: left;
+}
+.playAnswer {
+  margin-top: 14px;
+  visibility: hidden;
+  float: right;
 }
 .btn {
   display: inline-block;
@@ -66,10 +94,18 @@ h1 {
   background: lightgray;
   color: black;
   margin: 7px;
+  margin-top: 15px;
   /*margin-left: 0px;*/
   border: 1px solid black;
   border-radius: 15px;
   text-align: center;
+}
+.riddleSelector {
+  margin: 10px;
+}
+.riddleType {
+  font-weight: bold;
+  color: red;
 }
 /* Media queries for larger screen size */
 @media screen and (min-width:760px)
@@ -88,5 +124,20 @@ h1 {
 }
 .riddle {
   font-size: 1.5em;
+}
+.answerBox {
+  min-width: 350px;
+}
+.playAudio {
+  width: 30px;
+  height: 30px;
+  float:left;
+}
+.playQuestion {
+  margin-top: 25px;
+  margin-left: -38;
+}
+.playAnswer {
+  margin-top: 24px;
 }
 }
