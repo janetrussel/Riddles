@@ -55,6 +55,9 @@ h1 {
 }*/
 .questionBox {
   display: inline-block;
+ /* border:1px solid red; */
+  min-height: 65px;
+  min-width: 300px;
 }
 .playAudio {
   width: 20px;
@@ -62,11 +65,16 @@ h1 {
   cursor: pointer;
 }
 .playQuestion {
+/*  border:1px solid white; */
   float: left;
   margin-right: 5px;
   margin-top: 14px;
 }
 .question {
+  max-width: 270px;
+  min-width: 270px;
+/*  border: 1px solid yellow; */
+  text-align: justify;
   margin-left: 0px;
   float: right;
 }
@@ -75,7 +83,7 @@ h1 {
   min-width: 100px;
 }
 .answer {
-  border: 1px solid red;
+/*  border: 1px solid red; */
   color:orange;
   visibility: hidden;
   margin-right: 10px;

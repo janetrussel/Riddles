@@ -3,6 +3,7 @@ let riddles = [];
 let riddlesToDisplay = [];
 let riddleNum = -1;
 let riddleType = "all";
+let riddleCategories = [];
 
 // Get the riddles from a .json file
 fetch ("riddles.json")
@@ -11,10 +12,22 @@ fetch ("riddles.json")
     riddles = json;
     riddles.forEach (function (riddle,index) {
       riddlesToDisplay [index] = index;
+
+      // Build a list of categories from categories of each riddle.
+      riddle.categories.forEach (function (category){
+        if (!riddleCategories.includes (category))
+        {
+          // add new category to the list
+          riddleCategories.push (category);
+        }
+      });
     });
 
+    // Display the riddle categories dropdown.
+    displayRiddleCategories ();
     // Initialize and show the 1st riddle.
     initRiddle ();
+
 });
 
 /****************************************************** */
@@ -64,5 +77,6 @@ function riddleInCategory (riddleIndex, category) {
 /****************************************************** */
   const question = riddles[riddleIndex].question;
   // For now check if the category word is in the question
-  return (question.includes (category));
+
+  return (riddles[riddleIndex].categories.includes (category));
 }

@@ -8,6 +8,23 @@ const next = document.querySelector (".next");
 const playAnswer = document.querySelector (".playAnswer");
 const riddleTypeSelect = document.querySelector (".riddleTypeSelect");
 
+/***************************************************************** */
+function displayRiddleCategories () {
+/***************************************************************** */
+  // ALphabetically sort the riddle categories and insert "all" as the
+  // 1st category
+  riddleCategories = riddleCategories.sort();
+  riddleCategories.unshift ("all");
+ 
+  // Update the display with the options for the dropdown menu.
+  let categoryStr = "";
+  riddleCategories.forEach (category => {
+    categoryStr += 
+      `<option value="${category}">${category[0].toUpperCase()}${category.substring(1)}</option_value>`;
+  });
+  riddleTypeSelect.innerHTML = categoryStr;
+};
+
 // Show the answer the riddle.
 /***************************************************************** */
 function showAnswer (answerStr) {
@@ -20,7 +37,6 @@ function showAnswer (answerStr) {
     return `<span class="answer-letter">${letter}</span>`;
   });
   
-  //console.log ("letters:  ", letters);
   answer.innerHTML = letters.join ('');
 
   // Add a delay in between each letter in the answer; play laugh at the end
