@@ -6,6 +6,7 @@ const buttons = document.querySelector (".buttons");
 const prev = document.querySelector (".prev");
 const next = document.querySelector (".next");
 const playAnswer = document.querySelector (".playAnswer");
+const riddleTypeSelect = document.querySelector (".riddleTypeSelect");
 
 // Show the answer the riddle.
 /***************************************************************** */
@@ -57,14 +58,20 @@ function showQuestion (questionStr) {
   // Hide the playAudio icon for the answer
   playAnswer.style.visibility = "hidden";
 
+  const numRiddlesToDisplay = riddlesToDisplay.length;
   // If it's the 1st riddle in the list, hide the prev button
   if (!riddleNum) {
     prev.style.display = "none";
   }
-  // If it the last riddle in the list, hide the next button
-  else if (riddleNum === (riddles.length - 1))
+  // If it the last riddle in the list or there is only 1 riddle, 
+  // hide the next button
+  if ((numRiddlesToDisplay === 1) || riddleNum === (numRiddlesToDisplay - 1))
   {
     next.style.display = "none";
+  }
+  else
+  {
+    next.style.display = "inline-block";
   }
 
 }
@@ -88,6 +95,28 @@ document.querySelectorAll ('.playAudio').forEach(item => {
       playText (riddle.answer);
     }
   });
+});
+
+/****************************************************************** */
+// Add an event listenter to the riddle Selector
+riddleTypeSelect.addEventListener ('change', () => {
+/****************************************************************** */
+    riddleType = riddleTypeSelect.options[riddleTypeSelect.selectedIndex].value;
+    // Only display riddles of the specified category.
+    // Build a new array of riddles -include only the index numbers in the list
+    // Clear the current array of indices by setting the length to 0.
+    riddlesToDisplay.length = 0;
+    let i = 0;
+    riddles.forEach (function (riddle,index) {
+      // Check if the current riddle is in the specified category.
+      if (riddleInCategory (index, riddleType))
+      {
+        riddlesToDisplay [i] = index;
+        i++;
+      }
+    });
+    // Initialize the 1st riddle.
+    initRiddle();
 });
 
 /****************************************************************** */

@@ -27,13 +27,22 @@
     </div>
 
     <div class="buttons">
-      <span class="btn giveup" name="giveUp">I give up!</span>
-      <span class="btn next" name="next">Next Riddle</span>
-      <span class="btn prev" name="prev">Prev Riddle</span>
+      <button class="btn giveup" name="giveUp">I give up!</button>
+      <button class="btn next" name="next">Next Riddle</button>
+      <button class="btn prev" name="prev">Prev Riddle</button>
     </div>
     <!-- A form to change the riddle category -->
     <div class="riddleSelector">
-        >> Display <span class="riddleType">All</span> Riddles
+      <p style="float:left;">>> Display</p>
+      <p>
+          <select name="riddleTypeSelect" class="riddleTypeSelect"> 
+          <option value="all">All</option_value>
+          <option value="chicken">Chicken</option_value>
+          <option value="computer">Computer</option_value>
+          <option value="horse">Horse</option_value>
+        </select>
+      </p>
+      <p>Riddles</p>
     </div>
   </div>
 </body>

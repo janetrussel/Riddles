@@ -102,10 +102,15 @@ h1 {
 }
 .riddleSelector {
   margin: 10px;
+  display: inline-block;
+  min-width: 300px;
 }
-.riddleType {
-  font-weight: bold;
-  color: red;
+.riddleTypeSelect {
+  float:left;
+  text-align: center !important;
+  color: darkslategrey;
+  margin: 10px;
+  margin-top: 0px;
 }
 /* Media queries for larger screen size */
 @media screen and (min-width:760px)
