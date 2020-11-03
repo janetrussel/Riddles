@@ -7,6 +7,7 @@ const prev = document.querySelector (".prev");
 const next = document.querySelector (".next");
 const playAnswer = document.querySelector (".playAnswer");
 const riddleTypeSelect = document.querySelector (".riddleTypeSelect");
+const categoryImage = document.querySelector (".categoryImage");
 
 /***************************************************************** */
 function displayRiddleCategories () {
@@ -114,6 +115,21 @@ document.querySelectorAll ('.playAudio').forEach(item => {
 });
 
 /****************************************************************** */
+function fileExists (fileName) {
+/****************************************************************** */
+  let http = new XMLHttpRequest ();
+  http.open ('HEAD', fileName, false);
+  http.send ();
+  if (http.status === 200)
+  {
+    return (true);
+  }
+  else {
+    return (false);
+  }
+};
+
+/****************************************************************** */
 // Add an event listenter to the riddle Selector
 riddleTypeSelect.addEventListener ('change', () => {
 /****************************************************************** */
@@ -131,6 +147,25 @@ riddleTypeSelect.addEventListener ('change', () => {
         i++;
       }
     });
+    // Display the image that corresponds to the selected category.
+    // Look for a file name with the category name and either .png or .jpg
+    // If no match is found use the default image all.png.
+    const fileNamePrefix = `./images/categories/${riddleType}`;
+    
+    let jpgImageFile = fileNamePrefix + ".jpg";
+    let pngImageFile = fileNamePrefix + ".png";
+    
+    let imageFileName = "./images/categories/all.png";
+
+    if (fileExists (jpgImageFile)) {
+      imageFileName = jpgImageFile;
+    }
+    else if (fileExists (pngImageFile)) {
+      imageFileName = pngImageFile;
+    }
+
+    categoryImage.src = imageFileName;
+
     // Initialize the 1st riddle.
     initRiddle();
 });

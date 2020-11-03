@@ -120,6 +120,17 @@ h1 {
   margin: 10px;
   margin-top: 0px;
 }
+.categoryImage {
+  border-radius: 10px;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;  
+  float: right;
+  height: 65px;
+  width: 65px;
+  margin-top: 10px;
+  margin-right: 0px;
+}
 /* Media queries for larger screen size */
 @media screen and (min-width:760px)
 {
@@ -164,5 +175,9 @@ h1 {
 }
 .playAnswer {
   margin-top: 24px;
+}
+.categoryImage {
+  height: 60px;
+  width: 60px;
 }
 }

@@ -69,6 +69,15 @@
     "answer": "There was de Brie everywhere!",
     "categories": ["food"]},
   {"question": "What happened when the teacher tied all the kids' shoe laces together?",
-      "answer": "They had a class trip!",
-      "categories": ["school"]}     
+    "answer": "They had a class trip!",
+    "categories": ["school"]},  
+  {"question": "How did the computer hacker get out of jail?",
+    "answer": "He pressed the escape key!",
+    "categories": ["computer"]},
+  {"question": "Why did the chicken cross the playground?",
+    "answer": "To get to the other slide!",
+    "categories": ["chicken", "animal"]},
+  {"question": "Why did Cinderella fail gym class?",
+    "answer": "She kept running away from the ball!",
+    "categories": ["running", "fitness", "school"]}    
   ]
