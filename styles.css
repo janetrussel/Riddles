@@ -55,7 +55,7 @@ h1 {
 }*/
 .questionBox {
   display: inline-block;
- /* border:1px solid red; */
+/*  border:1px solid red; */
   min-height: 65px;
   min-width: 300px;
 }
@@ -138,17 +138,29 @@ h1 {
 .riddle {
   font-size: 1.5em;
 }
+.questionBox {
+  min-width: 600px;
+  min-height: 85px;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 20px;
+}
+.question {
+  min-width: 540px;
+  max-width: 540px;
+  margin: 0px;
+  margin-top: 25px;
+  margin-left: -50px;
+}
 .answerBox {
   min-width: 350px;
 }
 .playAudio {
   width: 30px;
   height: 30px;
-  float:left;
 }
 .playQuestion {
   margin-top: 25px;
-  margin-left: -38;
 }
 .playAnswer {
   margin-top: 24px;
