@@ -36,6 +36,10 @@ function initRiddle () {
   riddleNum = -1;
   riddle = getRiddle (1);
   showQuestion (riddle.question);
+  
+  // Display number of riddles in the category.
+  numRiddles.textContent = riddlesToDisplay.length;
+
 }
 
 /****************************************************** */

@@ -43,7 +43,7 @@ h1 {
   padding: 10px;
   /*margin: 0px;*/
   padding-right: 40px;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: bold;
   /*font-style: cursive;*/
   color: white;
@@ -56,8 +56,8 @@ h1 {
 .questionBox {
   display: inline-block;
 /*  border:1px solid red; */
-  min-height: 65px;
-  min-width: 300px;
+  min-height: 70px;
+  min-width: 280px;
 }
 .playAudio {
   width: 20px;
@@ -71,11 +71,12 @@ h1 {
   margin-top: 14px;
 }
 .question {
-  max-width: 270px;
-  min-width: 270px;
+  max-width: 250px;
+  min-width: 250px;
 /*  border: 1px solid yellow; */
-  text-align: justify;
+  text-align: left;
   margin-left: 0px;
+  padding-left: 15px;
   float: right;
 }
 .answerBox {
@@ -88,6 +89,12 @@ h1 {
   visibility: hidden;
   margin-right: 10px;
   float: left;
+}
+.numRiddles {
+  background: lightgray;
+  padding: 3px;
+  margin: 2px;
+  border-radius: 50%;
 }
 .playAnswer {
   margin-top: 14px;
@@ -129,7 +136,7 @@ h1 {
   height: 65px;
   width: 65px;
   margin-top: 10px;
-  margin-right: 0px;
+  margin-right: 10px;
 }
 /* Media queries for larger screen size */
 @media screen and (min-width:760px)
@@ -157,14 +164,17 @@ h1 {
   margin-right: 20px;
 }
 .question {
-  min-width: 540px;
-  max-width: 540px;
+  min-width: 570px;
+  max-width: 570px;
   margin: 0px;
   margin-top: 25px;
-  margin-left: -50px;
 }
 .answerBox {
   min-width: 350px;
+}
+.numRiddles {
+  padding: 4px;
+  margin: 5px;
 }
 .playAudio {
   width: 30px;

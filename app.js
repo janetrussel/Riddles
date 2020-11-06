@@ -8,6 +8,7 @@ const next = document.querySelector (".next");
 const playAnswer = document.querySelector (".playAnswer");
 const riddleTypeSelect = document.querySelector (".riddleTypeSelect");
 const categoryImage = document.querySelector (".categoryImage");
+const numRiddles = document.querySelector (".numRiddles");
 
 /***************************************************************** */
 function displayRiddleCategories () {
@@ -65,7 +66,7 @@ function showAnswer (answerStr) {
 /****************************************************************** */
 function showQuestion (questionStr) {
 /****************************************************************** */
-  question.textContent = questionStr;
+  question.textContent = `${riddleNum+1}. ${questionStr}`;
   // Place a character in the answer string -even though it's hidden.
   // so that the chalkboard stays a fixed size and the height doesn't
   // decrease and increase as the answer disappears.
@@ -115,18 +116,52 @@ document.querySelectorAll ('.playAudio').forEach(item => {
 });
 
 /****************************************************************** */
-function fileExists (fileName) {
+const fileExists = async (url) => {
 /****************************************************************** */
+//  Check if a file exists.
+const response = await fetch (url);
+return (response.status === 200);
+/*  The following synchronous function is deprecated.
   let http = new XMLHttpRequest ();
-  http.open ('HEAD', fileName, false);
+  http.open ('HEAD', url, false);
   http.send ();
-  if (http.status === 200)
-  {
-    return (true);
-  }
-  else {
-    return (false);
-  }
+  console.log ("status [", http.status, "]");
+  return (http.status === 200);
+*/
+};
+/****************************************************************** */
+function displayCategoryImage (category)
+/****************************************************************** */
+{
+  // Display the image that corresponds to the selected category.
+  // Look for a file name with the category name and either .png or .jpg
+  // If no match is found use the default image all.png.
+  const fileNamePrefix = `./images/categories/${riddleType}`;
+    
+  let jpgImageFile = fileNamePrefix + ".jpg";
+  let pngImageFile = fileNamePrefix + ".png";
+    
+  let defaultImageFileName = "./images/categories/all.png";
+
+    // Look for a jpg file
+  fileExists (jpgImageFile)
+    .then (data => { 
+      if (data) {
+        categoryImage.src = jpgImageFile;
+      }
+      else {
+        // Since there is no jpg file; look for a png file
+        fileExists (pngImageFile)
+        .then (data => {
+          if (data) {
+            categoryImage.src = pngImageFile;
+          }
+          else {
+            categoryImage.src = defaultImageFileName;
+          }
+        }).catch (err => categoryImage.src = defaultImageFileName);
+      };
+    }).catch (err => categoryImage.src = defaultImageFileName);
 };
 
 /****************************************************************** */
@@ -141,32 +176,17 @@ riddleTypeSelect.addEventListener ('change', () => {
     let i = 0;
     riddles.forEach (function (riddle,index) {
       // Check if the current riddle is in the specified category.
-      if (riddleInCategory (index, riddleType))
+      if ((riddleType === "all") || riddleInCategory (index, riddleType))
       {
         riddlesToDisplay [i] = index;
         i++;
       }
     });
-    // Display the image that corresponds to the selected category.
-    // Look for a file name with the category name and either .png or .jpg
-    // If no match is found use the default image all.png.
-    const fileNamePrefix = `./images/categories/${riddleType}`;
+   
+    // Display the category image
+    displayCategoryImage (riddleType);
     
-    let jpgImageFile = fileNamePrefix + ".jpg";
-    let pngImageFile = fileNamePrefix + ".png";
-    
-    let imageFileName = "./images/categories/all.png";
-
-    if (fileExists (jpgImageFile)) {
-      imageFileName = jpgImageFile;
-    }
-    else if (fileExists (pngImageFile)) {
-      imageFileName = pngImageFile;
-    }
-
-    categoryImage.src = imageFileName;
-
-    // Initialize the 1st riddle.
+    // Initialize the riddle
     initRiddle();
 });
 
